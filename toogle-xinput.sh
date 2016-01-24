@@ -13,7 +13,7 @@ function notify {
 
 	elif [[ $de = "ubuntu" ]]
 		then
-		notify-send \""$1"\" \""$2"\" -t $(($notify_timeout*1000))
+		notify-send $1 $2 -t $(($notify_timeout*1000))
 
 	fi
 
@@ -25,7 +25,7 @@ function notify {
 # if no argument is passed
 if [ -z "$1" ]
 	then
-	notify "toogle-xinput.sh" "Invalid command.\nUsage: ./toogle-xinput.sh [id]" 1
+	notify "toogle-xinput.sh" "  Invalid command.\n  Usage: ./toogle-xinput.sh [id]" 1
 fi
 
 check_id="$(xinput list | grep "id=$1")"
@@ -33,7 +33,7 @@ check_id="$(xinput list | grep "id=$1")"
 # if there does not exist any input device corresponding to the given id
 if [ -z "$check_id" ]
 	then
-	notify "toogle-xinput.sh" "Invalid id.\nUse \"xinput list\" to see available ids." 1
+	notify "toogle-xinput.sh" "  Invalid id.\n  Use \"xinput list\" to see available ids." 1
 fi
 
 # get enabled status
@@ -46,8 +46,8 @@ pattern='((\w+\s+)+)\s+id=10'
 if [ $status -eq 0 ]
 	then
 	xinput enable $1
-	notify "toogle-xinput.sh" "Enabled Input: ${BASH_REMATCH[1]}" 0
+	notify "toogle-xinput.sh" "  Enabled Input: ${BASH_REMATCH[1]}" 0
 else
 	xinput disable $1
-	notify "toogle-xinput.sh" "Disalbed Input: ${BASH_REMATCH[1]}" 0
+	notify "toogle-xinput.sh" "  Disalbed Input: ${BASH_REMATCH[1]}" 0
 fi
