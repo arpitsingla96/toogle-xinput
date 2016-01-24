@@ -6,6 +6,14 @@ then
 	exit 128
 fi
 
+check_id="$(xinput list | grep "id=$1")"
+
+if [ -z "$check_id" ]
+	then
+	echo -e "Invalid id.\nUse \"xinput list\" to see available ids."
+	exit 128
+fi
+
 status="$(xinput list-props $1 | grep "Device Enabled")"
 status="${status: -1}"
 
