@@ -9,4 +9,6 @@ A simple bash script to toogle [ON/OFF] an input device listed in xinput
 5. Create a custom keyboard shortcut for this command.
 
 ## Features
-- Sends an event notification on KDE.
+- Sends an event notification on:
+  * KDE
+  * Ubuntu

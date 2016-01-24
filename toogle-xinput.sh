@@ -10,6 +10,11 @@ function notify {
 	if [[ $de = "plasma" ]]
 		then
 		kdialog --title "$1" --passivepopup "$2" $notify_timeout &
+
+	elif [[ $de = "ubuntu" ]]
+		then
+		notify-send \""$1"\" \""$2"\" -t $(($notify_timeout*1000))
+
 	fi
 
 	echo -e "$2"
