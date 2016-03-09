@@ -3,7 +3,7 @@
 
 notify_timeout=5
 
-# $1=title, $2=message, $3=time, $4=exit_code
+# $1=title, $2=message, $3=exit_code
 function notify {
 	de=$DESKTOP_SESSION
 	
@@ -13,7 +13,7 @@ function notify {
 
 	elif [[ $de = "ubuntu" ]]
 		then
-		notify-send $1 $2 -t $(($notify_timeout*1000))
+		notify-send "$1" "$2" -t $(($notify_timeout*1000))
 
 	fi
 
