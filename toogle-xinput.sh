@@ -13,7 +13,7 @@ function notify {
 
 	elif [[ $de = "ubuntu" ]]
 		then
-		notify-send "$1" "$2" -t $(($notify_timeout*1000))
+		notify-send -u critical "$1" "$2" -t $(($notify_timeout*1000))
 
 	fi
 
